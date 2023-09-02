@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body class="pt-2" >
+  <div class="alert alert-warning alert-dismissible fade show container mt-0 " id="alert" role="alert">
+    <p id="alert-text"></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    <div class="overAll login container d-flex justify-content-center align-items-center w-75 p-1 mt-5 ">
+
+        <div class="left-image w-75">
+            <img src="images/image-left-removebg-preview.png" alt="">
+        </div>
+
+    <div class="container ">
+      <form class="bg-light p-3 " id="login">
+        <h3 class="text-center">Login</h3>
+  <div class="mb-3 ">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" >
+    <div id="emailHelp" class="form-text">Enter your email</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="showPassword()">
+    <label class="form-check-label" for="exampleCheck1">Show Password</label>
+  </div>
+  <div class="create-acc">
+    <a onclick="changePagetoCA()" href="/"><p>Create an account?</p></a>
+  </div>
+  <button type="submit" class="btn btn-primary"  >Submit</button>
+</form>
+
+<!-- //signup// -->
+
+
+  <form class="bg-light p-3" id="signup">
+    <h3 class="text-center">Create New Account</h3>
+    <div class="row g-3">
+    <div class="col-md-6">
+      <label for="firsNameInput1" class="form-label">First Name</label>
+      <input type="text" class="form-control " id="firsNameInput1" aria-describedby="emailHelp" >
+    </div>
+    <div class="col-md-6">
+      <label for="lastNameInput4" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastNameInput4" aria-label="Last name">
+    </div>
+    </div>
+    <div class="mb-3 ">
+      <label for="exampleInputEmail2" class="form-label">Email address</label>
+      <input type="email" class="form-control " id="exampleInputEmail2" aria-describedby="emailHelp" >
+    </div>
+    <div class="row g-3">
+    <div class="col-md-6">
+      <label for="exampleInputPassword2" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword2">
+    </div>
+    <div class="col-md-6">
+      <label for="confirminputPassword4" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" id="confirminputPassword4">
+    </div>
+    <div id="passwordHelp" class="form-text">Enter new Password</div>
+
+    </div>
+    
+    <div class="create-acc mt-3">
+      <a onclick="changePagetoLogin()" href="/"><p>already have an account?</p></a>
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="submitFunc()">Create Account</button>
+    </form>
+</div>
+    </div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

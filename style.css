@@ -1,0 +1,32 @@
+
+body{
+    background-image: url(https://img.freepik.com/free-vector/minimal-geometric-stripe-shape-background_1409-1014.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.left-image{
+    background-color: lightblue;
+    height: 100%;
+    border-radius: 3.5px;
+}
+
+.overAll{
+    height: 80vh;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 9px;
+}
+
+#signup{
+    display: none;
+}
+
+#login{
+    /* display: none; */
+}
+
+.alert{
+    display: none;
+}
