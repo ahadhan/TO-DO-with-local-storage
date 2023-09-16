@@ -167,8 +167,14 @@ const validateInputs = () => {
                 usersData.push(userData)
                 localStorage.setItem('usersData', JSON.stringify(usersData));
                 //   console.log(JSON.stringify(localStorage.getItem("userData")));
+                const currenUserfn = () => {
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    window.location.href = 'home.html';
+                };
+            currenUserfn();
             }
             postData();
+            
             window.location.href = 'home.html';
         }
 
