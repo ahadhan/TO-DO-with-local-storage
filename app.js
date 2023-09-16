@@ -51,7 +51,7 @@ signUp.addEventListener("submit", (event) => {
 
 
 var messages = [];
-var currentUser = localStorage.getItem("currentUser") || null;
+var currentUser = localStorage.getItem("currentUser") || [];
 var userId = 1000;
 var finalUserId;
 var userFound;
@@ -169,7 +169,7 @@ const validateInputs = () => {
                 //   console.log(JSON.stringify(localStorage.getItem("userData")));
                 const currenUserfn = () => {
                     localStorage.setItem('currentUser', JSON.stringify(userData));
-                    window.location.href = 'home.html';
+                    // window.location.href = 'home.html';
                 };
             currenUserfn();
             }
