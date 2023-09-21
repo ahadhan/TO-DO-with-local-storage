@@ -13,9 +13,12 @@
         <nav class="navbar navbar-dark bg-dark fixed-top ">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"> <img class="logo" src="images/logo todo.png" alt=""> My Works </a>
+              <div class="navbut">
+              <span class="mx-4" onclick="logOut()"><i class="fa-solid fa-right-from-bracket fa-lg" style="color: #82d2eb;"></i></span>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+            </div>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 id="user-in-nav" class="offcanvas-title text-dark" id="offcanvasNavbarLabel">Welcome </h5>
@@ -33,7 +36,7 @@
             <div class="child d-flex justify-content-center align-items-center">
               <form action="">
                 <input class='input ' type="text" name="" id="input" placeholder='✍ Enter Your Items Here'>
-            <i class="fa fa-plus add-btn mx-1" onclick="addTodo()" ></i>
+            <i class="fa fa-plus add-btn mx-1" onclick="addTodo()"></i>
           </form>
             </div>
 
@@ -41,7 +44,8 @@
               <ul id="todoList" class="ul my-3">
                 <!-- <button type="button" class="btn btn-success">Success <i class="fa-solid fa-trash" style="color: #ed3838;"></i></button> -->
               </ul>
-              <button type="button" class="btn btn-danger deleteAll" onclick="deleteAll()">Delete All</button>
+              <button type="button" id="show-all" class="btn btn-success showAll" onclick="showList()">Show my list</button>
+              <button type="button" id="delete-all"class="btn btn-danger deleteAll" onclick="deleteAll()">Delete All</button>
 
             </div>
           </div>
