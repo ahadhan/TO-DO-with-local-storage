@@ -78,16 +78,29 @@ const validateInputs = () => {
 
     // if(login.style.display === "block" ){
     if (emailValue === "" || emailValue === null) {
-        msg = "Email Cant be Blank!"
-        messages.push(msg);
-        console.log(messages.length)
-        errorsM();
+        // msg = "Email Cant be Blank!"
+        // messages.push(msg);
+        // console.log(messages.length)
+        // errorsM();
+        Swal.fire({
+            icon: 'error',
+            title: 'Email Cant be blank',
+            text: 'Enter Your Email to Login!',
+            // footer: '<a href="">Why do I have this issue?</a>'
+        })
+
         console.log(email)
     }
     else if (passwordValue.length < 8 || passwordValue.length === 0) {
-        msg = "Password Should contain atleast 8 characters";
-        messages.push(msg);
-        errorsM();
+        // msg = "Password Should contain atleast 8 characters";
+        // messages.push(msg);
+        // errorsM();
+        Swal.fire({
+            icon: 'error',
+            title: 'Password Cant be blank',
+            text: 'Enter Your Password to Login!',
+            // footer: '<a href="">Why do I have this issue?</a>'
+        })
         login.reset();
         console.log("password checked")
     }
@@ -98,15 +111,25 @@ const validateInputs = () => {
         userFound = isRegistered(emailValue, passwordValue)
         if (userFound) {
             console.log("User Found:", userFound);
-            msg = "Successfully Login!"
-            messages.push(msg);
-            login.reset();
-            errorsM();
-            console.log(emailValue, passwordValue, userFound)
-            localStorage.setItem('currentUser', JSON.stringify(userFound));
-            changePage();           
+            // msg = "Successfully Login!"
+            // messages.push(msg);
+            // login.reset();
+            // errorsM();
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully LoggedIn!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setTimeout(() => {
+                console.log(emailValue, passwordValue, userFound)
+                localStorage.setItem('currentUser', JSON.stringify(userFound));
+                changePage();
+            }, 1500);
+
             // window.location.href = 'home.html';
-            
+
             //  const updateCurrList=()=>{  
             //     localStorage.setItem("todoItems", JSON.stringify(todoItems));
             //     updateTodoList();
@@ -114,8 +137,14 @@ const validateInputs = () => {
             // updateCurrList();
         }
         else {
-            msg = "Your are not registered. Create account to get registered!"
-            messages.push(msg);
+            // msg = "Your are not registered. Create account to get registered!"
+            // messages.push(msg);
+            Swal.fire({
+                icon: 'error',
+                title: 'Sorry! Your are not registered.',
+                text: 'Create account to get registered!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
             errorsM();
         }
     }
@@ -125,40 +154,74 @@ const validateInputs = () => {
     if (signUp.style.display === "block") {
 
         if (firstNameValue === "" || firstNameValue === null) {
-            msg = "First Name must be fill!";
-            messages.push(msg);
-            errorsM();
+            // msg = "First Name must be fill!";
+            // messages.push(msg);
+            // errorsM();
+            Swal.fire({
+                icon: 'error',
+                title: 'First Name Cant Be Blank',
+                text: 'Enter Your First Name!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
             signUp.reset();
             console.log("first name checked")
         }
 
         if (emailValue2 == "" || emailValue2 == null) {
-            msg = "Email Cant be Blank!"
-            messages.push(msg);
-            console.log(messages.length)
-            errorsM();
+            // msg = "Email Cant be Blank!"
+            // messages.push(msg);
+            // console.log(messages.length)
+            // errorsM();
+            Swal.fire({
+                icon: 'error',
+                title: 'Email Cant be blank',
+                text: 'Enter Your Email to Login!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
             signUp.reset();
             console.log("email checked")
         }
         else if (passwordCa.length < 8 || passwordCa.length === 0) {
-            msg = "Password Should contain atleast 8 characters";
-            messages.push(msg);
-            signUp.reset();
-            errorsM();
+            // msg = "Password Should contain atleast 8 characters";
+            // messages.push(msg);
+            // signUp.reset();
+            // errorsM();
+            Swal.fire({
+                icon: 'error',
+                title: 'Password Cant be blank',
+                text: 'Enter Your Password to Login!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
         }
 
         else if (passwordCa !== confirmValue) {
-            msg = "Confirm Password does not match!";
-            messages.push(msg);
-            signUp.reset();
-            errorsM();
+            // msg = "Confirm Password does not match!";
+            // messages.push(msg);
+            // signUp.reset();
+            // errorsM();
+            Swal.fire({
+                icon: 'error',
+                title: 'Confirm password doesnt match!',
+                text: 'Confirm Password must be same as password!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
         }
         else {
-            msg = "Successfully Registered!"
-            messages.push(msg);
-            signUp.reset();
-            errorsM();
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully Registered! ',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            // msg = "Successfully Registered!"
+            // messages.push(msg);
+            // signUp.reset();
+            // errorsM();
 
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 1500);
             const postData = () => {
                 if (usersData && Array.isArray(usersData) && usersData.length > 0) {
                     lastUserId = (usersData[usersData.length - 1]).userId + 1;
@@ -180,9 +243,9 @@ const validateInputs = () => {
                 // localStorage.setItem("todoItems", JSON.stringify(todoItems));
             }
             postData();
-            window.location.href = 'home.html';
+
             // todoItems.push(newTodo);
-            const updateCurrList=()=>{  
+            const updateCurrList = () => {
                 localStorage.setItem("todoItems", JSON.stringify(todoItems));
                 updateTodoList();
             }
@@ -300,6 +363,7 @@ function updateTodoList() {
 
 
 function addTodo() {
+    showAllBtn.style.display = "none";
     const todoItem = inputValue.value.trim();
     todoId = 100;
 
@@ -328,16 +392,33 @@ function deleteTodo(index) {
 }
 
 function deleteAll() {
-    todoItems.length = 0;
-    localStorage.removeItem("todoItems")
-    updateTodoList();
+    Swal.fire({
+        title: 'Are you sure you want to delete?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+            todoItems.length = 0;
+            localStorage.removeItem("todoItems")
+            updateTodoList();
+        }
+    })
 }
 
-function showList () {
-        localStorage.setItem("todoItems", JSON.stringify(todoItems));
-        updateTodoList();
-        deleteAllBtn.disabled = false;
-        showAllBtn.style.display = "none";
+function showList() {
+    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+    updateTodoList();
+    deleteAllBtn.disabled = false;
+    showAllBtn.style.display = "none";
 }
 
 const changePage = () => {
@@ -345,9 +426,26 @@ const changePage = () => {
     updateTodoList();
 }
 
-const logOut = () =>{
-    localStorage.removeItem("currentUser");
-    window.location.href = "index.html";    
+const logOut = () => {
+    Swal.fire({
+        title: 'Are you sure you want to logout?',
+        text: "You will have to login again next time!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Logout!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Logged Out!',
+                'You are loggin out ...',
+                'success'
+            )
+            localStorage.removeItem("currentUser");
+            window.location.href = "index.html";
+        }
+    })
 }
 
 // todoItems? todoItems.map(item, (item) => {
